@@ -127,7 +127,6 @@ def place_in_circle(create_tree, count=8, radius=10, center=(0, 0, 0), **kwargs)
     Returns:
         list: A list of object/group names created by create_func.
     """
-    center_x, center_y, center_z = center
     results = []
 
     for i in range(count):
