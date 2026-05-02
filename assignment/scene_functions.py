@@ -109,7 +109,7 @@ def create_lamp_post(pole_height=5, light_radius=0.5):
 
 
 def place_in_circle(create_tree, count=8, radius=10, center=(0, 0, 0), **kwargs):
-      """Place objects created by 'create_func' in a circular arrangement.
+    """Place objects created by 'create_func' in a circular arrangement.
 
     This is a higher-order function: it takes another function as an
     argument and calls it repeatedly to place objects around a circle.
