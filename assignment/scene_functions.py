@@ -1,15 +1,17 @@
 import maya.cmds as cmds
 import math
 
-def create_building(width=4, height=8, depth=4, position=(0, 0, 0)):
+def create_building(width=4, height=8, depth=4)):
+    ""Creates a simple building""
     x, y, z = position
     building = cmds.polyCube(width=width, height=height, depth=depth)[0]
     cmds.move(x, y + height / 2.0, z, building)
     return building
 
 
-def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2,
-                position=(0, 0, 0)):
+def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2):
+    ""creats a simple tree""
+                
     
 
     trunk = cmds.polyCylinder(radius=trunk_radius, height=trunk_height)[0]
@@ -23,10 +25,9 @@ def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2,
     return tree
 
 
-def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
+def create_fence(length=10, height=1.5, post_count=6):
     
-
-
+    "" Makes a fence at a set length""
 
     spacing = length / float(post_count - 1)
     parts = []
@@ -49,8 +50,8 @@ def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
     return fence
 
 
-def create_lamp_post(pole_height=5, light_radius=0.5, position=(0, 0, 0)):
-    
+def create_lamp_post(pole_height=5, light_radius=0.5):
+    ""Makes a lamppost""
 
     pole = cmds.polyCylinder(radius=0.1, height=pole_height)[0]
     cmds.move(x, y + pole_height / 2.0, z, pole)
