@@ -20,7 +20,7 @@ def create_building(width=4, height=8, depth=4):
     """
   
     building = cmds.polyCube(width=width, height=height, depth=depth)[0]
-    cmds.move(5, 9 + height / 2.0, 2, building)
+    cmds.move(x, y + height / 2.0, z, building)
     return building
 
 
@@ -40,7 +40,7 @@ def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2):
     
 
     trunk = cmds.polyCylinder(radius=trunk_radius, height=trunk_height)[0]
-    cmds.move(1, 4 + trunk_height / 2.0, 7, trunk)
+    cmds.move(x, y + trunk_height / 2.0, z, trunk)
 
     canopy = cmds.polySphere(radius=canopy_radius)[0]
     canopy_y = 2 + trunk_height + canopy_radius * 0.6
@@ -99,10 +99,10 @@ def create_lamp_post(pole_height=5, light_radius=0.5):
     """
 
     pole = cmds.polyCylinder(radius=0.1, height=pole_height)[0]
-    cmds.move(7, 2 + pole_height / 2.0, 3, pole)
+    cmds.move(x, y + pole_height / 2.0, z, pole)
 
     lamp = cmds.polySphere(radius=light_radius)[0]
-    cmds.move(7, 4 + pole_height + light_radius, 3, lamp)
+    cmds.move(x, y + pole_height + light_radius, z, lamp)
 
     lamp_post = cmds.group(pole, lamp, name="LampPost")
     return lamp_post
