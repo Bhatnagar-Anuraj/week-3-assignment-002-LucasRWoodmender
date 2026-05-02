@@ -1,6 +1,11 @@
 import maya.cmds as cmds
-import math
+import scene_functions as sf
 
+cmds.file(new=True, force=True)
+
+ground = cmds.polyPlane(name="ground", width=60, height=60,
+                        subdivisionsX=1, subdivisionsY=1)[0]
+                        
 def create_building(width=4, height=8, depth=4):
    
     """Create a simple building from a cube, placed on the ground plane.
@@ -22,7 +27,6 @@ def create_building(width=4, height=8, depth=4):
     building = cmds.polyCube(width=width, height=height, depth=depth)[0]
     cmds.move(x, y + height / 2.0, z, building)
     return building
-
 
 def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2):
     """Create a simple tree using a cylinder trunk and a sphere canopy.
@@ -48,7 +52,6 @@ def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2):
 
     tree = cmds.group(trunk, canopy, name="Tree")
     return tree
-
 
 def create_fence(length=10, height=1.5, post_count=6):
     
@@ -136,4 +139,7 @@ def place_in_circle(create_tree, count=8, radius=10, center=(0, 0, 0), **kwargs)
         result = create_tree(x, z)
         results.append(result)
         place_in_circle(create_tree, count=8, radius=7, center_x=0, center_z=5)
-    return results
+    return results   
+if __name__ == "__main__":
+    cmds.viewFit(allObjects=True)
+    print("Main scene built successfully!")
