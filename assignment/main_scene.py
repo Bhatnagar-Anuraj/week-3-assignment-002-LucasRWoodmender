@@ -136,4 +136,5 @@ def place_in_circle(create_tree, count=8, radius=10, center=(0, 0, 0), **kwargs)
         z = center_z + math.sin(angle) * radius
         result = create_tree(x, z)
         results.append(result)
+        place_in_circle(create_tree, count=8, radius=7, center_x=0, center_z=5)
     return results
